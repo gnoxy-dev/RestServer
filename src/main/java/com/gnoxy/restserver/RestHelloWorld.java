@@ -43,7 +43,7 @@ public class RestHelloWorld {
         jsonList.add("Hello LATAM");
         jsonList.add("Hello EMEA");
         jsonList.add("Hello APAC");
-        jsonList.add("Hello North and South Poles!");
+        jsonList.add("Hello to the North and South Poles!");
         
         return jsonList;
                 
