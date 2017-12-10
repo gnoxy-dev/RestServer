@@ -17,7 +17,7 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                sh 'docker login -u="DockerHub_Access_USR" -p="$DockerHub_Access_PSW"'
+                sh 'docker login -u="$DockerHub_Access_USR" -p="$DockerHub_Access_PSW"'
                 sh 'docker push gnoxy/rest-server'
             }
         }
