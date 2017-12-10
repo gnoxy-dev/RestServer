@@ -11,6 +11,12 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+
+        stage ('Deploy') {
+            steps {
+                sh 'docker push gnoxy/rest-server'
+            }
+        }
     }
 }
 
