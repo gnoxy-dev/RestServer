@@ -37,7 +37,7 @@ public class RestHelloWorldTestIT {
          List<String> helloWorldString = client.target(helloWorldURL+"helloJSON") // connection to the pre-defined URL
                  .request()
                  .get(ArrayList.class); // we call the 'get' method and we transform the answer in a String
-        assertEquals(5, helloWorldString.size());
+        assertEquals(6, helloWorldString.size());
         
     }
     

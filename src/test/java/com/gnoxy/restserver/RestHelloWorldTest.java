@@ -43,7 +43,7 @@ public class RestHelloWorldTest {
         System.out.println("hello");
         RestHelloWorld instance = new RestHelloWorld();
         String result = instance.hello();
-        assertEquals(expectedResult, result);
+        assertEquals(expectedResult, result.substring(0, 11));
        }
     
     

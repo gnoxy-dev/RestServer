@@ -125,7 +125,7 @@
                       <goal>build</goal>
                     </goals>
                     <configuration>
-                      <repository>gnoxy/wildfly</repository>
+                      <repository>gnoxy/rest-server</repository>
                     </configuration>                    
                   </execution>
                 </executions>
