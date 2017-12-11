@@ -40,7 +40,7 @@ public class RestHelloWorldTest {
      */
     @Test
     public void testHello() {
-        System.out.println("hello");
+        System.out.println("unit test: hello");
         RestHelloWorld instance = new RestHelloWorld();
         String result = instance.hello();
         assertEquals(expectedResult, result.substring(0, 11));

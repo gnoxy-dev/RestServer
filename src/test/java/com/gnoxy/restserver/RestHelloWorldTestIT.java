@@ -25,7 +25,7 @@ public class RestHelloWorldTestIT {
         String helloWorldString = client.target(helloWorldURL+"helloWorld") // connection to the pre-defined URL
                 .request("text/plain")  // we request a "text/plain" answer
                 .get(String.class); // we call the 'get' method and we transform the answer in a String
-        assertEquals(expectedResult, helloWorldString);
+        assertEquals(expectedResult, helloWorldString.substring(0, 11));
         
     }
     
@@ -33,6 +33,7 @@ public class RestHelloWorldTestIT {
     public void testIntegrationHelloJSON(){
         // the client connect to the REST service
         Client client = ClientBuilder.newClient();
+         System.out.println("integration test: HelloJSON test");
         
          List<String> helloWorldString = client.target(helloWorldURL+"helloJSON") // connection to the pre-defined URL
                  .request()
