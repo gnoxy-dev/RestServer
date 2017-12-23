@@ -26,14 +26,16 @@
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
             <version>1.19</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>2.25.1</version>
+            <scope>provided</scope>
         </dependency>
-        
+       
         <!-- TEST dependencies -->
         <dependency>
             <groupId>junit</groupId>
