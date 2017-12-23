@@ -37,7 +37,7 @@ public class RestHelloWorld {
     @GET
     @Produces("application/json")
     public List<String> helloJSONList(){
-        List<String> jsonList = new ArrayList<String>();
+        List<String> jsonList = new ArrayList<>();
         jsonList.add("Hello World");
         jsonList.add("Hello NAM");
         jsonList.add("Hello LATAM");

@@ -1,11 +1,13 @@
 package com.gnoxy.restserver;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.apache.commons.io.IOUtils;
 
 /**
  *
@@ -30,7 +32,7 @@ public class RestHelloWorldTestIT {
     }
     
      @Test
-    public void testIntegrationHelloJSON(){
+    public void testIntegrationHelloJSON() throws Exception {
         // the client connect to the REST service
         Client client = ClientBuilder.newClient();
          System.out.println("integration test: HelloJSON test");
@@ -38,7 +40,8 @@ public class RestHelloWorldTestIT {
          List<String> helloWorldString = client.target(helloWorldURL+"helloJSON") // connection to the pre-defined URL
                  .request()
                  .get(ArrayList.class); // we call the 'get' method and we transform the answer in a String
-        assertEquals(6, helloWorldString.size());
+        InputStream expected = getClass().getClassLoader().getResourceAsStream("helloJSON-results.txt");
+        assertEquals(IOUtils.toString(expected).trim(), helloWorldString.toString());
         
     }
     
