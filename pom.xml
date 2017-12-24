@@ -122,21 +122,54 @@
             </plugin>
             
             <plugin>
-              <groupId>com.spotify</groupId>
-              <artifactId>dockerfile-maven-plugin</artifactId>
-              <version>1.3.6</version>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.23.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>gnoxy/rest-server</name>
+                            <build>
+                                <skip>${env.skip.docker.run}</skip>
+                                <dockerFileDir>${basedir}</dockerFileDir>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                            </build>
+                            <run>
+                                <ports>
+                                    <port>8080:8080</port>
+                                </ports>
+                                
+                                <wait>
+                                    <tcp>
+                                        <ports>
+                                            <port>8080</port>
+                                        </ports>
+                                    </tcp>
+                                    <time>5000</time>
+                                </wait>
+                               
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
                 <executions>
-                  <execution>
-                    <id>default</id>
-                    <goals>
-                      <goal>build</goal>
-                      <goal>push</goal>
-                    </goals>
-                    <configuration>
-                      <repository>gnoxy/rest-server</repository>
-                      <tag>latest</tag>
-                    </configuration>                    
-                  </execution>
+                    <execution>
+                        <id>build</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stop</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
                 </executions>
             </plugin>
             
