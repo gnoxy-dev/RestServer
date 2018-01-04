@@ -147,7 +147,7 @@
                                             <port>8080</port>
                                         </ports>
                                     </tcp>
-                                    <time>5000</time>
+                                    <time>15000</time>
                                 </wait>
                                
                             </run>
